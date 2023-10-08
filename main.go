@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"bwastartup/auth"
+	"bwastartup/campaign"
 	"bwastartup/handler"
 	"bwastartup/helper"
 	"bwastartup/user"
@@ -26,6 +27,15 @@ func main() {
 	}
 
 	userRepository := user.NewRepository(db)
+	campaignRepository := campaign.NewRepository(db)
+	campaigns, _ := campaignRepository.FindByUserId(1)
+	for _, camppaign := range campaigns {
+		fmt.Println(camppaign.Name)
+		if len(camppaign.CampaignImages) > 0 {
+			fmt.Println(camppaign.CampaignImages[0].FileName)
+		}
+	}
+
 	userService := user.NewService(userRepository)
 	authService := auth.NewService()
 
