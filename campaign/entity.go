@@ -17,7 +17,7 @@ type Campaign struct {
 	Perks            string
 	Slug             string
 	CreatedDate      time.Time
-	Updateddate      time.Time
+	UpdatedDate      time.Time
 	CampaignImages   []CampaignImages
 	User             user.User
 }
