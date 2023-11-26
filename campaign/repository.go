@@ -1,8 +1,6 @@
 package campaign
 
 import (
-	"fmt"
-
 	"gorm.io/gorm"
 )
 
@@ -43,7 +41,6 @@ func (r *repository) FindByUserId(UserId int) ([]Campaign, error) {
 }
 
 func (r *repository) FindById(ID int) (Campaign, error) {
-	fmt.Println("==================3")
 	var campaign Campaign
 	err := r.db.Preload("User").Preload("CampaignImages").Where("id = ?", ID).Find(&campaign).Error
 	if err != nil {

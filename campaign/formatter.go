@@ -47,6 +47,7 @@ type CampaignDetailFormatter struct {
 	Description      string                   `json:"description"`
 	ImageUrl         string                   `json:"image_url"`
 	GoalAmount       int                      `json:"goal_amount"`
+	BackerCount      int                      `json:"backer_count"`
 	CurrentAmount    int                      `json:"current_amount"`
 	UserID           int                      `json:"user_id"`
 	Slug             string                   `json:"slug"`
@@ -71,6 +72,7 @@ func FormatCampaignDetail(campaign Campaign) CampaignDetailFormatter {
 	campaignDetailFormatter.Name = campaign.Name
 	campaignDetailFormatter.ShortDescription = campaign.ShortDescription
 	campaignDetailFormatter.GoalAmount = campaign.GoalAmount
+	campaignDetailFormatter.BackerCount = campaign.BackerCount
 	campaignDetailFormatter.CurrentAmount = campaign.CurrentAmount
 	campaignDetailFormatter.UserID = campaign.UserId
 	campaignDetailFormatter.Slug = campaign.Slug
